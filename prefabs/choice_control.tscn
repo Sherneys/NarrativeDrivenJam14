@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhe8m7ikm0bq4"]
+
+[ext_resource type="Script" path="res://scripts/core_sys/choice_sys.gd" id="1_kq21m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yddl"]
+
+[node name="ChoiceControl" type="PanelContainer"]
+offset_left = 793.0
+offset_top = 455.0
+offset_right = 1126.0
+offset_bottom = 599.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4yddl")
+script = ExtResource("1_kq21m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Choices" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="MarginContainer/Choices"]
+layout_mode = 2
+text = "B1"
+
+[node name="Button2" type="Button" parent="MarginContainer/Choices"]
+layout_mode = 2
+text = "B2"
+
+[node name="Button3" type="Button" parent="MarginContainer/Choices"]
+layout_mode = 2
+text = "B3"
+
+[node name="Button4" type="Button" parent="MarginContainer/Choices"]
+layout_mode = 2
+text = "B4"
+
+[connection signal="button_down" from="MarginContainer/Choices/Button1" to="." method="_on_button_1_button_down"]
+[connection signal="button_down" from="MarginContainer/Choices/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="MarginContainer/Choices/Button3" to="." method="_on_button_3_button_down"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BackgroundRes" load_steps=3 format=3 uid="uid://x6n2gims1boq"]
+
+[ext_resource type="Texture2D" uid="uid://dmegm2f627r2b" path="res://assets/textures/background/Intro Final2.png" id="1_4xatb"]
+[ext_resource type="Script" path="res://scripts/user/background_res.gd" id="2_vefhg"]
+
+[resource]
+script = ExtResource("2_vefhg")
+id = "FSM"
+background_texture = ExtResource("1_4xatb")

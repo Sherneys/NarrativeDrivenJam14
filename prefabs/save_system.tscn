@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://u15xplf56chv"]
+
+[ext_resource type="Script" path="res://scripts/save/save_sys.gd" id="1_cayeu"]
+
+[node name="SaveSystem" type="Node"]
+script = ExtResource("1_cayeu")

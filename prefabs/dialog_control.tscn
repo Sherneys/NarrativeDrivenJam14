@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://covecwc7w2q7o"]
+
+[ext_resource type="Script" path="res://scripts/core_sys/dialog_sys.gd" id="1_vt1y3"]
+
+[node name="DialogControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 393.0
+offset_right = 42.0
+offset_bottom = 433.0
+script = ExtResource("1_vt1y3")
+
+[node name="DialogBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 256.0
+
+[node name="Name" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 61.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="Text" type="RichTextLabel" parent="DialogBox"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 76.0
+offset_right = 697.0
+offset_bottom = 243.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Text"

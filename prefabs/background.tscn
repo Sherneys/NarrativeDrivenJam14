@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6nf1anlrp5p5"]
+
+[ext_resource type="Script" path="res://scripts/user/background_sys.gd" id="1_nbbfc"]
+[ext_resource type="Resource" uid="uid://cpnq8xhu5th3y" path="res://resources/background/black_screen_background.tres" id="2_jpvid"]
+[ext_resource type="Resource" uid="uid://x6n2gims1boq" path="res://resources/background/front_shop_morning_background.tres" id="3_l41on"]
+[ext_resource type="Texture2D" uid="uid://biflewyaft40" path="res://assets/textures/placeholder/BlackScreen.png" id="4_hc157"]
+[ext_resource type="Script" path="res://scripts/shared/sprite_fader.gd" id="5_xlvl6"]
+
+[node name="Background" type="Node2D" node_paths=PackedStringArray("sprite_fader")]
+script = ExtResource("1_nbbfc")
+backgrounds = Array[Resource("res://scripts/user/background_res.gd")]([ExtResource("2_jpvid"), ExtResource("3_l41on")])
+sprite_fader = NodePath("SpriteFader")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 321)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_hc157")
+
+[node name="OldSprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 321)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_hc157")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="SpriteFader" type="Node" parent="." node_paths=PackedStringArray("sprite2D", "oldSprite2D", "fade_timer")]
+script = ExtResource("5_xlvl6")
+sprite2D = NodePath("../Sprite2D")
+oldSprite2D = NodePath("../OldSprite2D")
+fade_timer = NodePath("../Timer")
+fade_time = 1.5
+first_texture = ExtResource("4_hc157")
+
+[connection signal="timeout" from="Timer" to="SpriteFader" method="_on_timer_timeout"]

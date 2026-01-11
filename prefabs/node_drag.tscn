@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmle4wulyqql1"]
+
+[ext_resource type="Script" path="res://scripts/core_sys/node_drag.gd" id="1_kj70u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvhmn"]
+size = Vector2(128.75, 123)
+
+[node name="NodeDrag" type="Node2D"]
+position = Vector2(283, 183)
+script = ExtResource("1_kj70u")
+velocity_multiplier = 0.1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kvhmn")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

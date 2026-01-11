@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8xy0c3esn04b"]
+
+[ext_resource type="Script" path="res://scripts/user/char_sys.gd" id="1_lf675"]
+[ext_resource type="Script" path="res://scripts/shared/sprite_fader.gd" id="2_4uewv"]
+
+[node name="CharSystem" type="Node2D" node_paths=PackedStringArray("sprite_fader")]
+position = Vector2(570, 386)
+script = ExtResource("1_lf675")
+sprite_fader = NodePath("SpriteFader")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OldSprite2D" type="Sprite2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="SpriteFader" type="Node" parent="." node_paths=PackedStringArray("sprite2D", "oldSprite2D", "fade_timer")]
+script = ExtResource("2_4uewv")
+sprite2D = NodePath("../Sprite2D")
+oldSprite2D = NodePath("../OldSprite2D")
+fade_timer = NodePath("../Timer")
+fade_time = 1.0
+
+[connection signal="timeout" from="Timer" to="SpriteFader" method="_on_timer_timeout"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharRes" load_steps=3 format=3 uid="uid://cqcyyrra5nsbi"]
+
+[ext_resource type="Texture2D" uid="uid://cnwtwuxh17l2a" path="res://assets/textures/placeholder/sprite1 sad small.png" id="1_07b2r"]
+[ext_resource type="Script" path="res://scripts/user/char_res.gd" id="2_ft7nm"]
+
+[resource]
+script = ExtResource("2_ft7nm")
+id = "JSS"
+character_texture = ExtResource("1_07b2r")

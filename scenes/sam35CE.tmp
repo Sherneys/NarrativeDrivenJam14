@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://coxdg4wlh527f"]
+
+[ext_resource type="PackedScene" uid="uid://d2vsm34b12578" path="res://prefabs/dialog_box.tscn" id="1_m1fkg"]
+[ext_resource type="Script" path="res://scripts/choice_sys.gd" id="2_s5xyn"]
+
+[node name="Game" type="Node"]
+
+[node name="DialogBox" parent="." instance=ExtResource("1_m1fkg")]
+
+[node name="ChoiceBox" type="PanelContainer" parent="."]
+offset_left = 719.0
+offset_top = 118.0
+offset_right = 1052.0
+offset_bottom = 262.0
+script = ExtResource("2_s5xyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="ChoiceBox"]
+layout_mode = 2
+
+[node name="Choices" type="VBoxContainer" parent="ChoiceBox/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="Button1" type="Button" parent="ChoiceBox/MarginContainer/Choices"]
+layout_mode = 2
+text = "B1"
+
+[node name="Button2" type="Button" parent="ChoiceBox/MarginContainer/Choices"]
+layout_mode = 2
+text = "B2"
+
+[node name="Button3" type="Button" parent="ChoiceBox/MarginContainer/Choices"]
+layout_mode = 2
+text = "B3"
+
+[node name="Button4" type="Button" parent="ChoiceBox/MarginContainer/Choices"]
+layout_mode = 2
+text = "B4"
+
+[connection signal="button_down" from="ChoiceBox/MarginContainer/Choices/Button1" to="ChoiceBox" method="_on_button_1_button_down"]
+[connection signal="button_down" from="ChoiceBox/MarginContainer/Choices/Button2" to="DialogBox" method="_on_button_2_button_down"]

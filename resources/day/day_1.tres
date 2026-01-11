@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DayRes" load_steps=3 format=3 uid="uid://c26piiiaxo0kk"]
+
+[ext_resource type="Script" path="res://scripts/story/day_res.gd" id="1_2f7yc"]
+[ext_resource type="Resource" uid="uid://h0cjkppe686s" path="res://resources/session/jess_scene_1.tres" id="2_fy7n4"]
+
+[resource]
+script = ExtResource("1_2f7yc")
+day = 1
+sessions = Array[Resource("res://scripts/story/session_res.gd")]([ExtResource("2_fy7n4")])

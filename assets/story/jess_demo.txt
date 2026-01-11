@@ -1,0 +1,20 @@
+1_SC_JS
+2_CD_Jess_Do I have a chance of leaving?_Yes_100_Yes, but it has problem_200_No_300
+100_SC_JH
+101_ND_Jess_Ok
+200_SC_JDA
+201_CD_Jess's Father_Come_[Convice father]_400_[Convince Jess]_300
+300_SC_JA
+301_CD_Jess_But I don't want to stay this home. I have my dream_[pass]_500_[fail]_2000
+400_SC_JDA
+401_CD_Jess's Father_Tell me! why should I let my dauther go?_[pass]_1000_[fail]_499
+499_ND_Jess's Father_Stay away from my dauther!
+500_SC_JS
+501_ND_Jess_[Jess Miserable]
+502_J_1000
+1000_SC_JS
+1001_ND_Jess_[Jess follow her dream]
+1002_ES
+2000_SC_JA
+2001_ND_Jess_[Jess run away]
+2002_ES

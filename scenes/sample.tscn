@@ -1,0 +1,60 @@
+[gd_scene load_steps=20 format=3 uid="uid://cx733o2lvt5u1"]
+
+[ext_resource type="PackedScene" uid="uid://c6nf1anlrp5p5" path="res://prefabs/background.tscn" id="1_5wsw8"]
+[ext_resource type="PackedScene" uid="uid://covecwc7w2q7o" path="res://prefabs/dialog_control.tscn" id="2_goqle"]
+[ext_resource type="PackedScene" uid="uid://b8xy0c3esn04b" path="res://char_system.tscn" id="2_po1iu"]
+[ext_resource type="PackedScene" uid="uid://bhe8m7ikm0bq4" path="res://prefabs/choice_control.tscn" id="3_w321n"]
+[ext_resource type="PackedScene" uid="uid://cvo04ejhcfs3a" path="res://prefabs/card_control.tscn" id="6_ecay2"]
+[ext_resource type="PackedScene" uid="uid://c228j6h0k7fue" path="res://prefabs/story.tscn" id="6_of447"]
+[ext_resource type="Resource" uid="uid://c4ix1emngcwd2" path="res://resources/character/james/james_angry.tres" id="6_tbrle"]
+[ext_resource type="Resource" uid="uid://b2je0f56i3qi5" path="res://resources/character/james/james_happy.tres" id="7_ir11n"]
+[ext_resource type="Resource" uid="uid://btg33h0bnroke" path="res://resources/character/james/james_sad.tres" id="8_2ddbb"]
+[ext_resource type="Resource" uid="uid://cqvjgxw2qrkd5" path="res://resources/character/jess/jess_angry.tres" id="9_38yel"]
+[ext_resource type="Resource" uid="uid://2qiastqwa20c" path="res://resources/character/jess/jess_happy.tres" id="10_fetpi"]
+[ext_resource type="Resource" uid="uid://cqcyyrra5nsbi" path="res://resources/character/jess/jess_sad.tres" id="11_8k4bn"]
+[ext_resource type="Resource" uid="uid://ca0q32pl8ne48" path="res://resources/character/null_char.tres" id="12_gfiuk"]
+[ext_resource type="Texture2D" uid="uid://dbaga4k6ad1y0" path="res://assets/Table.png" id="13_csr8n"]
+[ext_resource type="Resource" uid="uid://c67wdns8iqud" path="res://resources/character/maria/maria_angry.tres" id="14_ekpbq"]
+[ext_resource type="Resource" uid="uid://c6fg6bxkp73ag" path="res://resources/character/maria/maria_happy.tres" id="15_7h6sg"]
+[ext_resource type="PackedScene" uid="uid://u15xplf56chv" path="res://prefabs/save_system.tscn" id="15_q0d1d"]
+[ext_resource type="Resource" uid="uid://133oxssswg4t" path="res://resources/character/maria/maria_sad.tres" id="16_ia84d"]
+[ext_resource type="PackedScene" uid="uid://dc6p6dmsi6x80" path="res://prefabs/day_sys.tscn" id="17_wo6ui"]
+
+[node name="Game" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Background" parent="." instance=ExtResource("1_5wsw8")]
+
+[node name="CharSystem" parent="." instance=ExtResource("2_po1iu")]
+characters = Array[Resource("res://scripts/user/char_res.gd")]([ExtResource("6_tbrle"), ExtResource("7_ir11n"), ExtResource("8_2ddbb"), ExtResource("9_38yel"), ExtResource("10_fetpi"), ExtResource("11_8k4bn"), ExtResource("12_gfiuk"), ExtResource("14_ekpbq"), ExtResource("15_7h6sg"), ExtResource("16_ia84d")])
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(576, 197)
+scale = Vector2(0.930612, 1.43173)
+texture = ExtResource("13_csr8n")
+
+[node name="Area2D" type="Area2D" parent="Table"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table/Area2D"]
+polygon = PackedVector2Array(165.5, -134.4, 290.5, -124.3, 290.5, -123.2, 422.5, -103.2, 422.5, -102, 504.5, -82.1, 504.5, -80.9, 538.5, -70, 538.5, -68.8, 572.5, -53.8, 572.5, -52.6, 593.5, -39.6, 593.5, -38.3, 612.5, -18.3, 612.5, 15.9, 607.7, 25.5, 606.2, 25.5, 578.3, 50.5, 576, 50.5, 551, 64.5, 547.9, 64.5, 502.9, 82.5, 498.8, 82.5, 447.8, 97.5, 442.9, 97.5, 378.7, 111.5, 372.8, 111.5, 230.6, 130.5, 218.7, 130.5, 152.9, 135.5, -140.7, 135.5, -290.5, 124.4, -290.5, 123.2, -422.5, 103.2, -422.5, 102.2, -473.5, 91.1, -473.5, 90, -522.5, 76, -522.5, 74.9, -552.5, 63.9, -552.5, 62.7, -592.5, 40.7, -592.5, 39.4, -608.5, 24.4, -608.5, 22.2, -612.5, 16.9, -612.5, -15.9, -607.7, -25.5, -606.3, -25.5, -587.3, -44.5, -585, -44.5, -551, -64.5, -547.9, -64.5, -520.9, -76.5, -517.8, -76.5, -482.8, -88.5, -478.6, -88.5, -420.8, -103.5, -415.8, -103.5, -288.7, -124.5, -279.7, -124.5, -206.6, -132.5, -193.6, -132.5, -143.5, -135.5, 165.5, -135.5)
+
+[node name="DialogControl" parent="." instance=ExtResource("2_goqle")]
+text_visual_time_interval = 0.05
+
+[node name="ChoiceControl" parent="." instance=ExtResource("3_w321n")]
+
+[node name="SaveSystem" parent="." instance=ExtResource("15_q0d1d")]
+
+[node name="CardControl" parent="." instance=ExtResource("6_ecay2")]
+position = Vector2(330, 148)
+
+[node name="DaySys" parent="." instance=ExtResource("17_wo6ui")]
+
+[node name="Story" parent="." instance=ExtResource("6_of447")]
+
+[connection signal="mouse_entered" from="Table/Area2D" to="CardControl" method="_on_table_area_mouse_entered"]
+[connection signal="mouse_exited" from="Table/Area2D" to="CardControl" method="_on_table_area_mouse_exited"]

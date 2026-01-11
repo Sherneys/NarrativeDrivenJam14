@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharRes" load_steps=3 format=3 uid="uid://b2je0f56i3qi5"]
+
+[ext_resource type="Script" path="res://scripts/user/char_res.gd" id="1_nrcww"]
+[ext_resource type="Texture2D" uid="uid://5s382cfi53f4" path="res://assets/textures/placeholder/sprite4 happy small.png" id="1_pki2d"]
+
+[resource]
+script = ExtResource("1_nrcww")
+id = "JMH"
+character_texture = ExtResource("1_pki2d")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TarotCardRes" load_steps=3 format=3 uid="uid://dowxvpgr8rb3y"]
+
+[ext_resource type="Script" path="res://scripts/description/tarot_card_res.gd" id="1_uoymx"]
+[ext_resource type="Texture2D" uid="uid://1scexwi7ybhm" path="res://assets/textures/cards/00F.png" id="1_xw0vu"]
+
+[resource]
+script = ExtResource("1_uoymx")
+card_id = 0
+card_name = "The Fool"
+card_description = "I am the Fool"
+card_texture = ExtResource("1_xw0vu")

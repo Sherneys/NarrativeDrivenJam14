@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BackgroundRes" load_steps=3 format=3 uid="uid://cpnq8xhu5th3y"]
+
+[ext_resource type="Texture2D" uid="uid://biflewyaft40" path="res://assets/textures/placeholder/BlackScreen.png" id="1_xmv0y"]
+[ext_resource type="Script" path="res://scripts/user/background_res.gd" id="2_n724u"]
+
+[resource]
+script = ExtResource("2_n724u")
+id = "BS"
+background_texture = ExtResource("1_xmv0y")

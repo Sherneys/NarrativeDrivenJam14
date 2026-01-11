@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx733o2lvt5u1"]
+
+[ext_resource type="Texture2D" uid="uid://bna1gbwv4cam0" path="res://assets/Kiki.png" id="1_gifxe"]
+[ext_resource type="PackedScene" uid="uid://covecwc7w2q7o" path="res://prefabs/dialog_control.tscn" id="2_goqle"]
+[ext_resource type="PackedScene" uid="uid://b8xy0c3esn04b" path="res://char_system.tscn" id="2_po1iu"]
+[ext_resource type="PackedScene" uid="uid://bhe8m7ikm0bq4" path="res://prefabs/choice_control.tscn" id="3_w321n"]
+[ext_resource type="PackedScene" uid="uid://cvo04ejhcfs3a" path="res://prefabs/card_control.tscn" id="6_ecay2"]
+[ext_resource type="PackedScene" uid="uid://c228j6h0k7fue" path="res://prefabs/story.tscn" id="6_of447"]
+[ext_resource type="Script" path="res://scripts/save/save_sys.gd" id="7_7dnit"]
+
+[node name="Game" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="Kiki" type="Sprite2D" parent="."]
+position = Vector2(591, 326)
+scale = Vector2(1.39849, 1.25348)
+texture = ExtResource("1_gifxe")
+
+[node name="CharSystem" parent="." instance=ExtResource("2_po1iu")]
+
+[node name="DialogControl" parent="." instance=ExtResource("2_goqle")]
+text_visual_time_interval = 0.05
+
+[node name="ChoiceControl" parent="." instance=ExtResource("3_w321n")]
+
+[node name="Story" parent="." instance=ExtResource("6_of447")]
+
+[node name="CardControl" parent="." instance=ExtResource("6_ecay2")]
+
+[node name="SaveSystem" type="Node" parent="."]
+script = ExtResource("7_7dnit")

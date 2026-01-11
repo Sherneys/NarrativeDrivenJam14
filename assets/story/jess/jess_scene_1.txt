@@ -1,0 +1,47 @@
+1_SB_FSM
+2_J_100
+
+100_SC_MRH
+101_ND_Maria_Oh hey, Jess. 'The usual'?
+102_SC_JSH
+103_ND_Jess_The usual.
+104_SC_MRH
+105_ND_Maria_Yeah, come meet Kate. She just move in.
+106_SC_JSH
+107_CD_Jess_Here? Why?_Why not. It's a lovely town._150_My mother used to live here._160_I killed someone and need some place ot hide._170
+
+150_ND_Jess_You're not wrong.
+151_J_200
+
+160_J_200
+
+170_ND_Jess_Well, rare chance to meet fellow killer.
+171_J_200
+
+200_SC_MRH
+201_ND_Maria_I'll get the the sanwich ready for you. Oh yeah, Kate is a tarot reader. On the house.
+202_SC_JSH
+203_ND_Jess_You're the best Maria.
+204_ND_Jess_Let's do this. My question is...
+205_CD_Jess_will I get out of here._Why do you want to get away from here?_250_What's stopping you._260_[Start fortune telling]_270
+
+250_ND_Jess_You know classic la la land follow you dream kinda situation. I want to be a animator. a good one, ever since I remember. I want to draw things to show people around the world. It's amazing.
+251_ND_Jess_But you know? 'You can't make a living out of drawing 'Jess''. I mean my father is cool.. But.. Classic stuff.
+252_J_300
+
+260_ND_Jess_Well, 'You can't make a living out of drawing Jess'. I mean my father is cool.. But.. Classic stuff.
+261_J_300
+
+270_J_300
+
+300_CD_Kate_[Fortune Telling]_You'll live your dream_350_Be careful_360_You won't make it_370
+
+350_SR_3_1
+351_ND_Jess_Thank you!
+
+360_SR_3_1
+361_ND_Jess_I don't care how many bump I need to cross. I will do it.
+
+370_SC_JSA
+371_SR_3_2
+372_ND_Jess_You're lying. You're just like my dad. I won't just stop doing what i love just because you told me to.

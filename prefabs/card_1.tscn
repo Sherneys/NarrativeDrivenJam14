@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhg85lxago7h6"]
+
+[ext_resource type="Script" path="res://scripts/user/card.gd" id="1_lnh7s"]
+[ext_resource type="Script" path="res://scripts/description/tarot_card_descriptor.gd" id="2_6risi"]
+[ext_resource type="Texture2D" uid="uid://1scexwi7ybhm" path="res://assets/textures/cards/00F.png" id="3_nftmt"]
+[ext_resource type="Texture2D" uid="uid://ctyumvxp24fgj" path="res://assets/textures/cards/01F.png" id="3_pheqk"]
+[ext_resource type="Script" path="res://scripts/core_sys/node_drag.gd" id="4_mrsfh"]
+
+[sub_resource type="Shader" id="Shader_kuxlk"]
+code = "shader_type canvas_item;
+
+uniform bool isFlipping;
+uniform bool isLeftToRight;
+uniform float flipPercentage: hint_range(0, 1) = 1;
+uniform sampler2D backSide;
+void fragment() {
+	float reverseUVX = 1.0f - UV.x;
+	COLOR = texture(TEXTURE, UV);
+	if(isFlipping){
+		if(isLeftToRight && UV.x > flipPercentage){
+			COLOR = texture(backSide, UV);
+		}else if(!isLeftToRight && reverseUVX > flipPercentage){
+			COLOR = texture(backSide, UV);
+		}
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vp3io"]
+resource_local_to_scene = true
+shader = SubResource("Shader_kuxlk")
+shader_parameter/isFlipping = false
+shader_parameter/isLeftToRight = false
+shader_parameter/flipPercentage = 1.0
+shader_parameter/backSide = ExtResource("3_pheqk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07svb"]
+size = Vector2(127, 127)
+
+[node name="Card1" type="CharacterBody2D" node_paths=PackedStringArray("sprite2D")]
+script = ExtResource("1_lnh7s")
+sprite2D = NodePath("Sprite2D")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 48.0
+offset_top = -72.0
+offset_right = 172.0
+offset_bottom = 82.0
+
+[node name="CardNameLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 87.0
+offset_bottom = 30.0
+text = "Card name"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 26.0
+offset_right = 118.0
+offset_bottom = 149.0
+text = "Card description"
+
+[node name="TarotCardDescriptor" type="Node" parent="." node_paths=PackedStringArray("shower_control", "card_name_label", "card_description_label", "card", "drag_sys")]
+script = ExtResource("2_6risi")
+shower_control = NodePath("../Panel")
+card_name_label = NodePath("../Panel/CardNameLabel")
+card_description_label = NodePath("../Panel/RichTextLabel")
+card = NodePath("..")
+drag_sys = NodePath("../DragSys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vp3io")
+position = Vector2(-3.00002, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_nftmt")
+
+[node name="CardDeck" type="Area2D" parent="."]
+position = Vector2(1, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDeck"]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_07svb")
+
+[node name="DragSys" type="Node2D" parent="." node_paths=PackedStringArray("target_char")]
+script = ExtResource("4_mrsfh")
+target_char = NodePath("..")
+velocity_multiplier = 5.0
+velocity_decrease_rate = 30.0
+
+[connection signal="mouse_entered" from="CardDeck" to="TarotCardDescriptor" method="_on_card_deck_mouse_entered"]
+[connection signal="mouse_entered" from="CardDeck" to="DragSys" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CardDeck" to="TarotCardDescriptor" method="_on_card_deck_mouse_exited"]
+[connection signal="mouse_exited" from="CardDeck" to="DragSys" method="_on_area_2d_mouse_exited"]

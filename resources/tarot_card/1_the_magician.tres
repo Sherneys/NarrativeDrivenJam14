@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TarotCardRes" load_steps=2 format=3 uid="uid://b68k4bxmxm183"]
+
+[ext_resource type="Script" path="res://scripts/description/tarot_card_res.gd" id="1_w2yge"]
+
+[resource]
+script = ExtResource("1_w2yge")
+card_id = 1
+card_name = ""
+card_description = ""

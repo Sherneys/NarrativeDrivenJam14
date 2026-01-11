@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SessionRes" load_steps=2 format=3 uid="uid://h0cjkppe686s"]
+
+[ext_resource type="Script" path="res://scripts/story/session_res.gd" id="1_kyrg8"]
+
+[resource]
+script = ExtResource("1_kyrg8")
+id = "JS1"
+story_file_name = "jess/jess_scene_1.txt"

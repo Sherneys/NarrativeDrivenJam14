@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://c228j6h0k7fue"]
+
+[ext_resource type="Script" path="res://scripts/story/story_runner.gd" id="1_qewj6"]
+[ext_resource type="Script" path="res://scripts/core_sys/game_runner.gd" id="2_wifxn"]
+[ext_resource type="Resource" uid="uid://c26piiiaxo0kk" path="res://resources/day/day_1.tres" id="3_h6v88"]
+[ext_resource type="Resource" uid="uid://c73vssd2hw6cf" path="res://resources/day/day_2.tres" id="4_cl6h2"]
+
+[node name="Story" type="Node"]
+
+[node name="StoryRunner" type="Node" parent="."]
+script = ExtResource("1_qewj6")
+
+[node name="GameRunner" type="Node" parent="."]
+script = ExtResource("2_wifxn")
+days = Array[Resource("res://scripts/story/day_res.gd")]([ExtResource("3_h6v88"), ExtResource("4_cl6h2")])
